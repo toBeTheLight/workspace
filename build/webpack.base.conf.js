@@ -3,11 +3,11 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var webpack = require('webpack')
 var { entry } = require('./config')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
 module.exports = {
   // entry 多页面入口
   entry,
@@ -46,8 +46,11 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
-        test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader",
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -74,5 +77,9 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    // new webpack.optimize.ModuleConcatenationPlugin(), 2.6.1版本 3.0+支持
+    // new ExtractTextPlugin("[name].css")
+  ]
 }

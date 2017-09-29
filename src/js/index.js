@@ -1,2 +1,2 @@
-// import '../less/style.less'
+import '../less/index.less'
 alert('index')
