@@ -1,7 +1,12 @@
-const pages = [
-    'index',
-    'login'
-]
+const fs = require('fs')
+var path = require('path')
+let fileList = fs.readdirSync(path.join(__dirname,'../src'))
+let pages = []
+fileList.forEach(item => {
+    if (/\.html$/.test(item)) {
+        pages.push(item.replace('.html', ''))
+    }
+})
 
 let entry = {}
 pages.forEach((name) => {
