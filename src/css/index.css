@@ -1,0 +1,5 @@
+.index::after {
+  content: 'index';
+  color: red;
+}
+/*# sourceMappingURL=./index.css.map */

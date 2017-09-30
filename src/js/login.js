@@ -1,4 +1,6 @@
-import '../less/login.less'
 import '../less/base.less'
+import '../less/login.less'
 
-alert('login')
+import './base.js'
+
+console.log('login')

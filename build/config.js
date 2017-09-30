@@ -16,7 +16,7 @@ pages.forEach((name) => {
         filename: `${name}.html`,
         template: `./src/${name}.html`,
         // inject: true,
-        chunks: [`${name}`],
+        chunks: [`${name}`, 'common'],
     }))
 })
 exports.devHtmlPlugin = devHtmlPlugin
@@ -28,7 +28,7 @@ pages.forEach((name) => {
             filename: `${name}.html`,
             template: `./src/${name}.html`,
             inject: true,
-            chunks: ['manifest', 'vendor', `${name}`],
+            chunks: ['manifest', 'vendor', `${name}`, 'common'],
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,

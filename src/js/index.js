@@ -1,2 +1,7 @@
+import '../less/base.less'
+import '../font/iconfont.css'
 import '../less/index.less'
-alert('index')
+
+import './base.js'
+
+console.log('index')

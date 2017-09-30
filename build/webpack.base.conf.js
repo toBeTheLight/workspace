@@ -27,15 +27,15 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   include: [resolve('src'), resolve('test')],
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
       {
         test: /\.html$/,
         loader: 'html-loader'
@@ -45,13 +45,13 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
       },
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
-      },
+      // {
+      //   test: /\.css$/,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: "style-loader",
+      //     use: "css-loader"
+      //   })
+      // },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
@@ -79,7 +79,8 @@ module.exports = {
     ]
   },
   plugins: [
-    // new webpack.optimize.ModuleConcatenationPlugin(), 2.6.1版本 3.0+支持
+    // new webpack.optimize.ModuleConcatenationPlugin(), 当前为webpack2.6.1版本 3.0+支持
     // new ExtractTextPlugin("[name].css")
+    new webpack.optimize.CommonsChunkPlugin('common')
   ]
 }

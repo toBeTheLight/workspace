@@ -1,0 +1,1 @@
+{"version":3,"sources":["../less/index.less","<input css 11>"],"names":[],"mappings":"AACA;EACI,iBAAA;EACA,WAAA;CCAH","file":"to.css","sourcesContent":[null,".index::after {\n  content: 'index';\n  color: red;\n}\n/*# sourceMappingURL=./index.css.map */"]}
